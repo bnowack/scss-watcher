@@ -1,0 +1,28 @@
+{
+    "name": "bnowack/scss-watcher",
+    "require": {
+        "leafo/scssphp": "0.1.1"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "leafo/scssphp",
+                "version": "0.1.1",
+                "dist": {
+                    "url": "https://github.com/leafo/scssphp/archive/v0.1.1.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Leafo\\ScssPhp\\": "vendor/leafo/scssphp/src/"
+        },
+        "psr-0": {
+            "ScssWatcher": "src/"
+        }
+
+    }    
+}
