@@ -1,5 +1,15 @@
 {
     "name": "bnowack/scss-watcher",
+    "description": "SCSS Watcher for multiple and/or nested directories",
+    "keywords": ["SCSS", "CSS", "PHP"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Nowack",
+            "homepage": "http://bnowack.de/",
+            "role": "developer"
+        }
+    ],
     "require": {
     },
     "repositories": [
