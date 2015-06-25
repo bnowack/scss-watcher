@@ -30,6 +30,10 @@ Ideally, the SCSS Watcher is run from the command line. A script is provided:
 
     php scripts/watch.php --path=/path/to/entry/directory
 
+or (from your repository root):
+
+    php vendor/bnowack/scss-watcher/scripts/watch.php --path=src
+
 ### License
 
 [The MIT License (MIT)](http://opensource.org/licenses/MIT)
