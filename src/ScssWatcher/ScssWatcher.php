@@ -5,6 +5,7 @@ namespace ScssWatcher;
 use \RecursiveDirectoryIterator;
 use \RecursiveIteratorIterator;
 use \RegexIterator;
+use \SplFileInfo;
 
 /**
  * Recursively monitors a directory for changed `.scss` files and generates `.css` versions
