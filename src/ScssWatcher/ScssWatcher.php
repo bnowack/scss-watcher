@@ -80,7 +80,7 @@ class ScssWatcher {
      */
     protected function getBinPath()
     {
-        return shell_exec("which sass 2>&1");
+        return trim(shell_exec("which sass 2>&1"));
     }
     
     /**
@@ -162,12 +162,12 @@ class ScssWatcher {
         if (!is_dir($cssDirName)) {
             mkdir($cssDirName, 0777);
         }
-        $response = shell_exec("$this->sassBinary $scssPath $cssPath --style $this->style $this->flags 2>&1");
+        $response = trim(shell_exec("$this->sassBinary $scssPath $cssPath --style $this->style $this->flags 2>&1"));
         if (strpos($response, 'error') !== false) {
             if ($response === $this->currentError) {
                 echo '.';
             } else {
-                echo substr($scssPath, strlen($this->entryPath)) . "\n" . $response;
+                echo substr($scssPath, strlen($this->entryPath)) . "\n" . $response . "\n";
             }
             $this->currentError = $response;
         }
