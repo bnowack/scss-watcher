@@ -32,7 +32,9 @@ Ideally, the SCSS Watcher is run from the command line. A script is provided:
 
 or (from your repository root):
 
-    php vendor/bnowack/scss-watcher/scripts/watch.php --path=src
+    php vendor/bnowack/scss-watcher/scripts/watch.php --path=src --bin=/usr/bin/sass
+
+The "bin" parameter is optional, for cases when auto-detection does not find the sass binary.
 
 ### License
 

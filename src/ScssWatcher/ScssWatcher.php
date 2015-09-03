@@ -66,12 +66,15 @@ class ScssWatcher {
     /**
      * Instantiates the class with a root/entry directory
      * @param string $entryPath Path to entry directory
+     * @param type $sassBinary Path to sass binary
      */
-	public function __construct($entryPath) {
+	public function __construct($entryPath, $sassBinary = null) {
         $this->entryPath = realpath($entryPath);
         $this->oldestMod = time();
-        $this->sassBinary = $this->getBinPath() ?: $this->sassBinary;
-        echo "Watching '" . $this->entryPath . "' with subdirectories\n";
+        $this->sassBinary = $sassBinary 
+            ? $sassBinary
+            : $this->getBinPath() ?: $this->sassBinary;
+        echo "Watching '" . $this->entryPath . "' with subdirectories using binary at '$this->sassBinary'\n";
 	}
     
     /**
