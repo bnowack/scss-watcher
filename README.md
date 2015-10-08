@@ -34,7 +34,10 @@ or (from your repository root):
 
     php vendor/bnowack/scss-watcher/scripts/watch.php --path=src --bin=/usr/bin/sass
 
-The "bin" parameter is optional, for cases when auto-detection does not find the sass binary.
+The "bin" parameter is optional. It can be used when auto-detection cannot find the sass binary. 
+On Windows machines the command usually looks like this:
+
+    php vendor/bnowack/scss-watcher/scripts/watch.php --path=src --bin=C:\Ruby\bin\sass
 
 ### License
 

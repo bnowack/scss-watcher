@@ -130,7 +130,7 @@ class ScssWatcher {
     protected function checkFile(SplFileInfo $file, $force) {
         $scssPath = $file->getPathname();
         $scssMod = $file->getMTime();
-        $scssName = preg_replace('/^.+\/([^\/]+)$/', '\\1', $scssPath);
+        $scssName = preg_replace('/^.+(\/|\\\\)([^\/\\\\]+)$/', '\\2', $scssPath);
 
         // don't compile `_`-prefixed system files
         if (substr($scssName, 0, 1) === '_') {
@@ -138,7 +138,7 @@ class ScssWatcher {
             return;
         }
 
-        $cssPath = preg_replace('/(\.|\/)scss($|\/)/', '\\1css\\2', $scssPath);
+        $cssPath = preg_replace('/(\.|\/|\\\\)scss($|\/|\\\\)/', '\\1css\\2', $scssPath);
         $cssMod = is_file($cssPath) ? filemtime($cssPath) : 0;
         $this->oldestMod = min($this->oldestMod, $cssMod);
 
@@ -162,7 +162,7 @@ class ScssWatcher {
      * @param string $cssPath Target path for the CSS file
      */
     protected function generateCss($scssPath, $cssPath) {
-        $cssDirName = preg_replace('/^(.+)\/[^\/]+$/', '\\1', $cssPath);
+        $cssDirName = preg_replace('/^(.+)(\/|\\\\)[^\/\\\\]+$/', '\\1', $cssPath);
         if (!is_dir($cssDirName)) {
             mkdir($cssDirName, 0777);
         }
